@@ -1,6 +1,7 @@
 import React from "react";
 
 import type {Product} from "../types/products.ts";
+import {Link} from "react-router-dom";
 
 interface ProductCardProps {
     product: Product;
@@ -13,12 +14,14 @@ export const ProductCard: React.FC<ProductCardProps> = ({product}) => {
             {/* Изображение */}
             <div
                 className="aspect-square w-full overflow-hidden rounded-lg bg-slate-900 flex items-center justify-center p-4">
-                <img
-                    src={product.image}
-                    alt={product.title}
-                    className="h-full max-h-[160px] object-contain transition-transform
+                <Link to={`/product/${product.id}`}>
+                    <img
+                        src={product.image}
+                        alt={product.title}
+                        className="h-full max-h-[160px] object-contain transition-transform
                 duration-300 group-hover:scale-105"
-                />
+                    />
+                </Link>
             </div>
             {/* Инфо */}
             <div className="mt-4 flex flex-col flex-1">

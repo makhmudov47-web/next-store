@@ -1,5 +1,5 @@
 import React from "react";
-
+import {Link} from "react-router-dom";
 
 export const Header: React.FC = () => {
     return (
@@ -7,12 +7,12 @@ export const Header: React.FC = () => {
      border-slate-800 bg-slate-900/95 text-white backdrop-blur">
             <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
                 {/* Логотип */}
-                <div className="flex items-center gap-2">
+                <Link to='/' className="flex items-center gap-2">
                     <span
                         className="text-2xl font-black tracking-tight bg-linear-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
                         TECH<span className="text-white">STORE</span>
                     </span>
-                </div>
+                </Link>
                 {/* Будущий поиск */}
                 <div className="hidden md:flex flex-1 max-w-md mx-8">
                     <input
@@ -26,12 +26,12 @@ export const Header: React.FC = () => {
                 <div className="flex items-center gap-6 text-sm font-medium">
                     <a href="#catacolog" className="hover:text-emerald-400 transition-colors">Каталог</a>
                     <a href="#favorites" className="relative hover:text-emerald-400 transition-colors">Избранное</a>
-                    <a href="#cart"
+                    <Link to='/cart'
                        className="relative bg-emerald-500
                    hover:bg-emerald-600 px-4 py-2 rounded-lg
                    font-semibold transition-colors flex items-center gap-2 text-slate-950">Корзина
                         <span className="bg-slate-950 text-emerald-400
-                    text-xs px-1.5 py-0.5 rounded-full font-bold">0</span></a>
+                    text-xs px-1.5 py-0.5 rounded-full font-bold">0</span></Link>
                 </div>
             </div>
 
