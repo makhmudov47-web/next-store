@@ -28,9 +28,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({product}) => {
                 <span className="text-xs font-semibold uppercase tracking-wider text-emerald-400">
                     {product.brand}
                 </span>
-                <h3 className="mt-1 text-sm font-bold text-slate-200 line-clamp-2 min-h-[40px] ">
-                    {product.title}
-                </h3>
+                <Link to={`/product/${product.id}`}>
+                    <h3 className="mt-1 text-sm font-bold text-slate-200 line-clamp-2 min-h-[40px] ">
+                        {product.title}
+                    </h3>
+                </Link>
                 {/* Рейтинг */}
                 <div className="mt-2 flex items-center gap-1 text-xs text-amber-400">
                     ⭐ <span>{product.rating}</span>
@@ -53,4 +55,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({product}) => {
         </div>
     )
 }
+
+
+
 
