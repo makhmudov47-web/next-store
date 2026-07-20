@@ -26,14 +26,13 @@ export const ProductDetails: React.FC = () => {
             <Link to="/" className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-emerald-400 transition-colors mb-8">
                 ← Назад в каталог
             </Link>
-
             <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
                 {/* Левая колонка: Изображение */}
-                <div className="flex items-center justify-center rounded-2xl border border-slate-800 bg-slate-950 p-8 min-h-[400px]">
+                <div className="flex items-center justify-center rounded-2xl border border-slate-800 bg-slate-950 p-8 min-h-100">
                     <img
                         src={product.image}
                         alt={product.title}
-                        className="max-h-[350px] w-auto object-contain"
+                        className="max-h-85 w-auto object-contain"
                     />
                 </div>
 

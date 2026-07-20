@@ -1,7 +1,9 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import {useCartStore} from "../../store/useCartStore.ts";
 
 export const Header: React.FC = () => {
+    const totalItems = useCartStore((state) => state.getTotalItems())
     return (
         <header className=" sticky top-0 z-50 w-full border-b
      border-slate-800 bg-slate-900/95 text-white backdrop-blur">
@@ -29,9 +31,12 @@ export const Header: React.FC = () => {
                     <Link to='/cart'
                        className="relative bg-emerald-500
                    hover:bg-emerald-600 px-4 py-2 rounded-lg
-                   font-semibold transition-colors flex items-center gap-2 text-slate-950">Корзина
-                        <span className="bg-slate-950 text-emerald-400
-                    text-xs px-1.5 py-0.5 rounded-full font-bold">0</span></Link>
+                   font-semibold transition-colors flex items-center gap-2 text-slate-950">
+                        Корзина
+                        { totalItems > 0 && (<span className="bg-slate-950 text-emerald-400
+                    text-xs px-1.5 py-0.5 rounded-full font-bold">
+                            {totalItems}
+                        </span>)}</Link>
                 </div>
             </div>
 

@@ -1,4 +1,5 @@
 import React from "react";
+import {useCartStore} from "../../store/useCartStore.ts";
 
 import type {Product} from "../types/products.ts";
 import {Link} from "react-router-dom";
@@ -8,6 +9,9 @@ interface ProductCardProps {
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({product}) => {
+
+    const addToCart = useCartStore((state) => state.addToCart)
+
     return (
         <div className="group relative  flex flex-col  overflow-hidden rounded-xl border border-slate-800  bg-slate-800
         bg-slate-950 p-4 transition-all hover:border-slate-700 hover:shadow-lg hover:shadow-emerald-500/5">
@@ -47,7 +51,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({product}) => {
                     {product.price.toLocaleString()} ₽
                 </span>
                     </div>
-                    <button>
+                    <button onClick={() => addToCart(product)}
+                            className='rounded-lg bg-emerald-500 px-3 py-2 text-xs font-bold text-slate-950 transition-colors hover:bg-emerald-400 cursor-pointer '
+                    >
                         В корзину
                     </button>
                 </div>
